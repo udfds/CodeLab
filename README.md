@@ -9,6 +9,9 @@
   
 ## Experiments
 - flask_joblib.py
+  - API for a machine learning model
+- rich-text-editor
+  - Rich text editor with Slate.js and React
 
 ## Solutions
 - gitlab-baseline-generate.py
