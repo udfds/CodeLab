@@ -10,8 +10,10 @@
 ## Experiments
 - flask_joblib.py
   - API for a machine learning model
-- rich-text-editor
+- rich-text-editor (React)
   - Rich text editor with Slate.js and React
+- python_data_structure.ipynb
+  - Practicing Data Structures In Python 
 
 ## Solutions
 - gitlab-baseline-generate.py
