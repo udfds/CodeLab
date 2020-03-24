@@ -1,0 +1,12 @@
+{
+    "drivers": [
+        {
+            "uuid": "12345",
+            "name": "Driver 1"
+        },
+        {
+            "uuid": "67890",
+            "name": "Driver 2"
+        }
+    ]
+}
