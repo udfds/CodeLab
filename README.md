@@ -14,6 +14,8 @@
   - Rich text editor with Slate.js and React
 - python_data_structure.ipynb
   - Practicing Data Structures In Python 
+- delivery-monitoring (Flask, RabbitMQ)
+  - Application for delivery request and monitoring
 
 ## Solutions
 - gitlab-baseline-generate.py
