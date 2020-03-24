@@ -10,7 +10,7 @@ channel.basic_publish(exchange='',
                       routing_key='simulation',
                       body='1')
 
-print(" [x] Sent 'Hello World!'")
+print(" [x] Request simulation for destiny '1'")
 connection.close()
 
 
