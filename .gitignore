@@ -30,3 +30,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+experiments/microblog/bin/
+
+experiments/microblog/node_modules/
+
+experiments/partymanager/bin/
+
+experiments/partymanager/gradle/wrapper/

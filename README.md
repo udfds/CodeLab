@@ -16,6 +16,10 @@
   - Practicing Data Structures In Python 
 - delivery-monitoring (Flask, RabbitMQ)
   - Application for delivery request and monitoring
+- partymanager
+  - Application for party manager. --SpringBoot, Gradle
+- microblog
+  - Application for microblog like Twitter. --Express.js, MongoDB, Mongoose
 
 ## Solutions
 - gitlab-baseline-generate.py
