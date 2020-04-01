@@ -19,7 +19,7 @@
 - partymanager
   - Application for party manager. --SpringBoot, Gradle
 - microblog
-  - Application for microblog like Twitter. --Express.js, MongoDB, Mongoose
+  - Application for microblog like Twitter. --Express.js, MongoDB, React.js
 
 ## Solutions
 - gitlab-baseline-generate.py
