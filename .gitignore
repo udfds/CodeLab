@@ -38,3 +38,5 @@ experiments/microblog/node_modules/
 experiments/partymanager/bin/
 
 experiments/partymanager/gradle/wrapper/
+
+experiments/microblog/server/node_modules/
