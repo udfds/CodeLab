@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.send('CodeLab - Microblog');
 });
 
-router.post('/users', authentication, async (request, response) => {
+router.post('/users', async (request, response) => {
     try {
         const { username, password } = request.body
 
