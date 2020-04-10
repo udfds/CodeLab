@@ -32,19 +32,19 @@ out/
 ### VS Code ###
 .vscode/
 
-experiments/microblog/bin/
+# Docker
+experiments/Docker/app-todo/node_modules/
+experiments/Docker/app-todo/src/static/css
+experiments/Docker/app-todo/src/static/ks
 
-experiments/microblog/node_modules/
+# JavaScipt
+experiments/JavaScipt/microblog/bin/
+experiments/JavaScipt/microblog/node_modules/
 
-experiments/partymanager/bin/
-
-experiments/partymanager/gradle/wrapper/
-
-experiments/microblog/server/node_modules/
-experiments/docker-basic/app/node_modules/
-experiments/docker-basic/app/src/static/css
-experiments/docker-basic/app/src/static/js
-experiments/spring-eureka/eureka-provider/bin
-experiments/spring-eureka/eureka-provider/gradle
-experiments/spring-eureka/eureka-server/bin
-experiments/spring-eureka/eureka-server/gradle
+# Java
+experiments/Java/partymanager/bin/
+experiments/Java/partymanager/gradle/wrapper/
+experiments/Java/spring-eureka/eureka-provider/bin
+experiments/Java/spring-eureka/eureka-provider/gradle
+experiments/Java/spring-eureka/eureka-server/bin
+experiments/Java/spring-eureka/eureka-server/gradle

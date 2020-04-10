@@ -8,18 +8,26 @@
   - An crawler to navigate in one domain and explore all pages and static assets
   
 ## Experiments
-- flask_joblib.py
-  - API for a machine learning model
-- rich-text-editor (React)
-  - Rich text editor with Slate.js and React
-- python_data_structure.ipynb
-  - Practicing Data Structures In Python 
-- delivery-monitoring (Flask, RabbitMQ)
-  - Application for delivery request and monitoring
-- partymanager
-  - Application for party manager. --SpringBoot, Gradle
-- microblog
-  - Application for microblog like Twitter. --Express.js, MongoDB, React.js
+- Docker/app-todo
+  - Experiments with Dockerfile, docker-compose.yml
+
+- Java/partymanager
+  - Application for party manager. (SpringBoot, Gradle)
+- Java/spring-eureka
+  - Application to experiment Eureka
+
+- JavaScript/microblog
+  - Application for microblog like Twitter. (Express.js, MongoDB, React.js)
+- JavaScript/rich-text-editor
+  - Rich text editor with Slate.js and React.
+
+- Python/delivery-monitoring
+  - Application for delivery request and monitoring. (Flask, RabbitMQ)
+- Python/flask_joblib.py
+  - API for a machine learning model.
+- Python/python_data_structure.ipynb
+  - Practicing Data Structures In Python. 
+
 
 ## Solutions
 - gitlab-baseline-generate.py
