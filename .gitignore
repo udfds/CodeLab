@@ -13,6 +13,7 @@ build/
 .settings
 .springBeans
 .sts4-cache
+.class
 
 ### IntelliJ IDEA ###
 .idea
@@ -40,3 +41,10 @@ experiments/partymanager/bin/
 experiments/partymanager/gradle/wrapper/
 
 experiments/microblog/server/node_modules/
+experiments/docker-basic/app/node_modules/
+experiments/docker-basic/app/src/static/css
+experiments/docker-basic/app/src/static/js
+experiments/spring-eureka/eureka-provider/bin
+experiments/spring-eureka/eureka-provider/gradle
+experiments/spring-eureka/eureka-server/bin
+experiments/spring-eureka/eureka-server/gradle
