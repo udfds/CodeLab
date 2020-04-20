@@ -14,6 +14,21 @@ services:
       - RABBITMQ_DEFAULT_PASS=admin
     networks:
       - network
+  
+  drive_simulador:
+    image: ""
+    ports:
+      - ""
+    volumes: 
+      - ''
+  
+  drivers:
+    image: ""
+    ports: 
+      - ""
+    volumes:
+      - ''
+    
 
 networks:
   network:

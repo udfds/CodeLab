@@ -32,14 +32,11 @@ out/
 ### VS Code ###
 .vscode/
 
-# Docker
-experiments/Docker/app-todo/node_modules/
-experiments/Docker/app-todo/src/static/css
-experiments/Docker/app-todo/src/static/ks
-
 # JavaScipt
-experiments/JavaScipt/microblog/bin/
-experiments/JavaScipt/microblog/node_modules/
+experiments/JavaScript/microblog/client/bin/
+experiments/JavaScript/microblog/client/node_modules/
+experiments/JavaScript/microblog/server/bin/
+experiments/JavaScript/microblog/server/node_modules/
 
 # Java
 experiments/Java/partymanager/bin/
