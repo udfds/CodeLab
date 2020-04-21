@@ -45,3 +45,4 @@ experiments/Java/spring-eureka/eureka-provider/bin
 experiments/Java/spring-eureka/eureka-provider/gradle
 experiments/Java/spring-eureka/eureka-server/bin
 experiments/Java/spring-eureka/eureka-server/gradle
+experiments/Python/delivery-monitoring/rabbitmq_data/
