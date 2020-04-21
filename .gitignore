@@ -46,3 +46,7 @@ experiments/Java/spring-eureka/eureka-provider/gradle
 experiments/Java/spring-eureka/eureka-server/bin
 experiments/Java/spring-eureka/eureka-server/gradle
 experiments/Python/delivery-monitoring/rabbitmq_data/
+
+experiments/Java/ecommerce/catalog/.mvn/wrapper/
+
+experiments/Java/ecommerce/products/.mvn/wrapper/

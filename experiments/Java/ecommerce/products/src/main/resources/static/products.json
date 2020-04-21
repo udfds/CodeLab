@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "uuid": "1ae6f626-8408-11ea-bc55-0242ac130003",
+      "product": "Product A",
+      "price": "0.99"
+    },
+    {
+      "uuid": "2394aeee-8408-11ea-bc55-0242ac130003",
+      "product": "Product B",
+      "price": "9.99"
+    },
+    {
+      "uuid": "2ba4641c-8408-11ea-bc55-0242ac130003",
+      "product": "Product C",
+      "price": "99.99"
+    }
+  ]
+}
