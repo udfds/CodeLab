@@ -16,18 +16,14 @@ services:
       - network
   
   drive_simulador:
-    image: ""
+    image: 'python:3.7-alpine'
     ports:
-      - ""
-    volumes: 
-      - ''
-  
+      - "8081:8081"
+    
   drivers:
-    image: ""
+    image: 'python:3.7-alpine'
     ports: 
-      - ""
-    volumes:
-      - ''
+      - "8080:8080"
     
 
 networks:

@@ -1,0 +1,10 @@
+{
+    "drivers": [
+        {
+            "driver": "driver_a"
+        },
+        {
+            "driver": "driver_b"
+        }
+    ]
+}
