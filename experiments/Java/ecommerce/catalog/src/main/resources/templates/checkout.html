@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Catalog - Checkout'" />
+
+    <h2 th:text="${product.name}">Product</h2>
+    <h3 th:text="${product.price}">$</h3>
+    
+    <form action="/order" method="post">
+        <input type="hidden" name="productUuid" th:value="${product.uuid}">
+        Email: <input type="text" name="email"><br>
+        Quantity: <input type="text" name="quantity"><br>
+        <button>Request order</button>
+    </form>
+
+</body>
+</html>

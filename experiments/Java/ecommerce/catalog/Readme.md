@@ -12,4 +12,4 @@ docker build -t codelab/ecommerce-catalog .
 
 ### Run container
 
-docker run -p 8081:8080 -t codelab/ecommerce-catalog
+docker run -p 8080:8080 -t codelab/ecommerce-catalog

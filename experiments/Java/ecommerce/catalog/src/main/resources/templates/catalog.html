@@ -10,8 +10,9 @@
     <table>
         <th:block th:each="product : ${products}">
            <tr>
-              <td th:text="${product.name}"></td>
-              <td th:text="${product.price}"></td>
+              <td>
+               <a th:href="'/checkout/' + ${product.uuid}" th:text="${product.name}"></a>
+              </td>
            </tr>
         </th:block>
      </table>
