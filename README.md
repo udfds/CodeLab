@@ -8,25 +8,31 @@
   - An crawler to navigate in one domain and explore all pages and static assets
   
 ## Experiments
-- Docker/app-todo
-  - Experiments with Dockerfile, docker-compose.yml
+- Java
+  - ecommerce
+    - Application for ecommerce. (StringFramework, Maven, Docker)
+  - partymanager
+    - Application for party manager. (StringFramework, Gradle)
+  - service-orders
+    - Application for request service orders. (StringFramework, Maven, JPA)
+  - spring-eureka
+    - Application to experiment Eureka. (StringFramework)
 
-- Java/partymanager
-  - Application for party manager. (SpringBoot, Gradle)
-- Java/spring-eureka
-  - Application to experiment Eureka
+- JavaScript
+  - microblog
+    - Application for microblog like Twitter. (Express.js, MongoDB, React.js)
+  - rich-text-editor
+    - Rich text editor with Slate.js and React.
 
-- JavaScript/microblog
-  - Application for microblog like Twitter. (Express.js, MongoDB, React.js)
-- JavaScript/rich-text-editor
-  - Rich text editor with Slate.js and React.
-
-- Python/delivery-monitoring
-  - Application for delivery request and monitoring. (Flask, RabbitMQ)
-- Python/flask_joblib.py
-  - API for a machine learning model.
-- Python/python_data_structure.ipynb
-  - Practicing Data Structures In Python. 
+- Python
+  - delivery-monitoring
+    - Application for delivery request and monitoring. (Flask, RabbitMQ)
+- Python
+  - flask_joblib.py
+    - API for a machine learning model.
+- Python
+  - python_data_structure.ipynb
+    - Practicing Data Structures In Python. 
 
 
 ## Solutions
