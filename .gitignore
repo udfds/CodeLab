@@ -50,3 +50,5 @@ experiments/Python/delivery-monitoring/rabbitmq_data/
 experiments/Java/ecommerce/catalog/.mvn/wrapper/
 
 experiments/Java/ecommerce/products/.mvn/wrapper/
+
+experiments/Java/service-orders/api/.mvn/wrapper/
