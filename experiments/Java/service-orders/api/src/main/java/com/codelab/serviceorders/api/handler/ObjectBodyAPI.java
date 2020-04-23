@@ -1,6 +1,6 @@
-package com.codelab.serviceorders.api.utils;
+package com.codelab.serviceorders.api.handler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class ObjectBodyAPI {
 
     private Integer status;
-    private LocalDateTime dateTime;
+    private OffsetDateTime dateTime;
     private String message;
     private List<ObjectErrorAPI> fields;
 
@@ -22,11 +22,11 @@ public class ObjectBodyAPI {
         this.message = message;
     }
 
-    public LocalDateTime getDateTime() {
+    public OffsetDateTime getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
     }
 

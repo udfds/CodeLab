@@ -1,8 +1,11 @@
-package com.codelab.serviceorders.api.utils;
+package com.codelab.serviceorders.api.handler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.codelab.serviceorders.api.exceptions.EntityNotFoundException;
+import com.codelab.serviceorders.api.exceptions.ModelException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -31,7 +34,7 @@ public class InternalExceptionHandler extends ResponseEntityExceptionHandler {
         ObjectBodyAPI objectBody = new ObjectBodyAPI();
         objectBody.setStatus(status.value());
         objectBody.setMessage(ex.getClass().getName());
-        objectBody.setDateTime(LocalDateTime.now());
+        objectBody.setDateTime(OffsetDateTime.now());
 
         List<ObjectErrorAPI> objectErrors = new ArrayList<ObjectErrorAPI>();
 
@@ -53,15 +56,24 @@ public class InternalExceptionHandler extends ResponseEntityExceptionHandler {
         return super.handleExceptionInternal(ex, objectBody, headers, status, request);
     }
 
-
     @ExceptionHandler(ModelException.class)
     public ResponseEntity<Object> handlerModelException(ModelException ex, WebRequest request) {
         ObjectBodyAPI objectBody = new ObjectBodyAPI();
         objectBody.setStatus(HttpStatus.BAD_REQUEST.value());
         objectBody.setMessage(ex.getMessage());
-        objectBody.setDateTime(LocalDateTime.now());
+        objectBody.setDateTime(OffsetDateTime.now());
 
         return super.handleExceptionInternal(ex, objectBody, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<Object> handlerModelException(EntityNotFoundException ex, WebRequest request) {
+        ObjectBodyAPI objectBody = new ObjectBodyAPI();
+        objectBody.setStatus(HttpStatus.NOT_FOUND.value());
+        objectBody.setMessage(ex.getMessage());
+        objectBody.setDateTime(OffsetDateTime.now());
+
+        return super.handleExceptionInternal(ex, objectBody, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
 }

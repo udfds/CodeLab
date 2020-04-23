@@ -1,4 +1,4 @@
-package com.codelab.serviceorders.api.utils;
+package com.codelab.serviceorders.api.handler;
 
 public class ObjectErrorAPI {
 

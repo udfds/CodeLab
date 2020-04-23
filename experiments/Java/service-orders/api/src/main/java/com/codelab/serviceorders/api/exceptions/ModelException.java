@@ -1,4 +1,4 @@
-package com.codelab.serviceorders.api.utils;
+package com.codelab.serviceorders.api.exceptions;
 
 public class ModelException extends RuntimeException {
 

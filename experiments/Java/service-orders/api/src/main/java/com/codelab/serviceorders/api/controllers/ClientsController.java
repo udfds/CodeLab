@@ -1,12 +1,16 @@
 package com.codelab.serviceorders.api.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import com.codelab.serviceorders.api.models.Client;
+import com.codelab.serviceorders.api.models.inputs.ClientInput;
+import com.codelab.serviceorders.api.models.outputs.ClientOutput;
 import com.codelab.serviceorders.api.services.ClientsService;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,41 +31,50 @@ public class ClientsController {
     @Autowired
     private ClientsService clientService;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @GetMapping
-    public List<Client> getClients() {
-        return clientService.list();
+    public List<ClientOutput> getClients() {
+        return toOutput(clientService.list());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Client> getClient(@PathVariable Long id) {
+    public ResponseEntity<ClientOutput> getClient(@PathVariable Long id) {
         Client client = clientService.get(id);
 
         if (client == null) {
             return ResponseEntity.notFound().build();
 
         } else {
-            return ResponseEntity.ok(client);
+            return ResponseEntity.ok(toOutput(client));
         }
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Client createClient(@Valid @RequestBody Client client) {
-        return clientService.save(client);
+    public ClientOutput createClient(@Valid @RequestBody ClientInput clientInput) {
+        Client client = fromInput(clientInput);
+
+        client = clientService.save(client);
+
+        return toOutput(client);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Client> updateClient(@Valid @PathVariable Long id, @RequestBody Client draftClient) {
+    public ResponseEntity<ClientOutput> updateClient(@Valid @PathVariable Long id, @RequestBody ClientInput clientInput) {
         Client client = clientService.get(id);
+        Client draftClient = fromInput(clientInput);
 
         if (client == null) {
             return ResponseEntity.notFound().build();
 
         } else {
+
             draftClient.setId(id);
             clientService.save(draftClient);
 
-            return ResponseEntity.ok(draftClient);
+            return ResponseEntity.ok(toOutput(draftClient));
         }
     }
 
@@ -77,6 +90,27 @@ public class ClientsController {
 
             return ResponseEntity.noContent().build();
         }
+    }
+
+    // --------------------------------------------------------------------
+    // Private functions
+    // --------------------------------------------------------------------
+
+    private Client fromInput(ClientInput clientInput) {
+        return modelMapper.map(clientInput, Client.class);
+    }
+
+    private ClientOutput toOutput(Client client) {
+        return modelMapper.map(client, ClientOutput.class);
+    }
+
+    private List<ClientOutput> toOutput(List<Client> clients) {
+        List<ClientOutput> serviceOrderOuts = new ArrayList<>();
+        for (Client client : clients) {
+            serviceOrderOuts.add(toOutput(client));
+        }
+
+        return serviceOrderOuts;
     }
 
 }
