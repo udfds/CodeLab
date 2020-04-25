@@ -6,6 +6,8 @@ import com.codelab.ecommerce.catalog.models.Product;
 import com.codelab.ecommerce.catalog.models.ProductOrder;
 import com.codelab.ecommerce.catalog.services.OrderSenderService;
 import com.codelab.ecommerce.catalog.services.ProductsRestService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -31,7 +33,7 @@ public class CatalogController {
         List<Product> products = productsRestService.getProducts();
 
         model.addAttribute("products", products);
-        
+
         return "catalog";
     }
 
@@ -48,20 +50,28 @@ public class CatalogController {
         return "checkout";
     }
 
-    @PostMapping(value="/order",consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping(value = "/order", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String create(Model model, @RequestBody MultiValueMap<String, String> formData) {
         ProductOrder productOrder = new ProductOrder();
         productOrder.setEmail(formData.getFirst("email"));
         productOrder.setQuantity(Integer.parseInt(formData.getFirst("quantity")));
         productOrder.setProductUuid(formData.getFirst("productUuid"));
 
-        List<Product> products = productsRestService.getProducts();
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String message = objectMapper.writeValueAsString(productOrder);
+            orderSenderService.send(message);
 
-        model.addAttribute("products", products);
+            List<Product> products = productsRestService.getProducts();
+            model.addAttribute("products", products);
+            
+            return "catalog";
 
-        //orderSenderService.send(order);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         
-        return "catalog";
+        return "error";
     }
 
 }

@@ -21,7 +21,6 @@ public class CatalogApplication {
 	public RestTemplate getRestTemplate() {
 	   return new RestTemplate();
 	}
-
 	 
     @Bean
     public Queue queue() {

@@ -8,8 +8,8 @@ java -jar .\target\catalog-0.0.1-SNAPSHOT.jar
 
 ### Build container
 
-docker build -t codelab/ecommerce-catalog .
+docker build -t codelab/ecommerce-service-order .
 
 ### Run container
 
-docker run -p 8082:8080 -t codelab/ecommerce-catalog
+docker run -p 8083:8080 -t codelab/ecommerce-service-order

@@ -17,7 +17,7 @@ public class ProductsRestService {
     @Autowired
     RestTemplate restTemplate;
 
-    private String serviceURI = "http://localhost:8081/products";
+    private String serviceURI = "http://127.0.0.1:8081/products";
 
     public List<Product> getProducts() {
         String url = this.serviceURI;

@@ -12,3 +12,9 @@ services:
       NAME: "rabbitmq"
     volumes:
       - ./rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
+
+  redis:
+    image: redis
+    command: redis-server --requirepass Redis2020!
+    ports:
+      - "6379:6379"
