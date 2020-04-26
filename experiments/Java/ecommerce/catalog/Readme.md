@@ -4,7 +4,7 @@
 
 ### Run jar
 
-java -jar .\target\catalog-0.0.1-SNAPSHOT.jar
+java -Dserver.port=8082 -jar .\target\catalog-0.0.1-SNAPSHOT.jar
 
 ### Build container
 

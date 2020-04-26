@@ -21,10 +21,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableRedisRepositories
 public class RedisConfig {
 
-    @Value("${redis.host}")
+    @Value("${spring.redis.host}")
     String hostName;
 
-    @Value("${redis.port}")
+    @Value("${spring.redis.port}")
     Integer port;
 
     @Autowired
