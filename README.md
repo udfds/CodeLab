@@ -10,7 +10,7 @@
 ## Experiments
 - Java
   - ecommerce
-    - Application for ecommerce. (StringFramework, Maven, Docker)
+    - Application for ecommerce. (StringFramework, Maven, Docker, RabbitMQ, Redis)
   - partymanager
     - Application for party manager. (StringFramework, Gradle)
   - service-orders
@@ -27,10 +27,8 @@
 - Python
   - delivery-monitoring
     - Application for delivery request and monitoring. (Flask, RabbitMQ)
-- Python
   - flask_joblib.py
     - API for a machine learning model.
-- Python
   - python_data_structure.ipynb
     - Practicing Data Structures In Python. 
 

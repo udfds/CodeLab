@@ -52,3 +52,9 @@ experiments/Java/ecommerce/catalog/.mvn/wrapper/
 experiments/Java/ecommerce/products/.mvn/wrapper/
 
 experiments/Java/service-orders/api/.mvn/wrapper/
+
+experiments/Python/pythonlab_solution/task_manager/task_manager/__pycache__/
+
+experiments/Python/pythonlab_solution/task_manager/app/migrations/__pycache__/
+
+experiments/Python/pythonlab_solution/task_manager/app/__pycache__/
