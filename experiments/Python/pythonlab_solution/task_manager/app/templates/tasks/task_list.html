@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Task manager</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% extends 'base.html '%}
 
-</head>
-<body>
+{% block content %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Task Manager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'task_list' %}">Task list <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<h1>List:</h1>
+{% for task in tasks %}
+    <div class="card mb-3">
+        <div class="card-header">
+            {{task.get_priority_display}}
+        </div>
+        <div class="card-body">
+            <p>{{task.title}}</p>
+            <p>{{task.description}}</p>
+            <a href="{% url 'task_edit' task.id %}">Edit</a>
+            <a href="{% url 'task_delete' task.id %}">Delete</a>
+        </div>
+    </div>
+{% endfor %}
 
-<main class="container">
-    <h1>Tasks</h1>
-    <ul>
-        <li>{{task_name}}</li>
-    </ul>
-</main>
+<a href="{% url 'task_create' %}">
+    <input type="button" class="btn btn-primary mb-3" value="create">
+</a>
 
-</body>
-</html>
+{% endblock content %}
