@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'task_manager',
         'USER': 'postgres',
-        'PASSWORD': 'Play@2020',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -118,6 +118,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'user_login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

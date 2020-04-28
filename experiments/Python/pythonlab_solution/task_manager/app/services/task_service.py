@@ -3,11 +3,11 @@ from ..models import Task
 
 def task_save(task):
     Task.objects.create(title=task.title, description=task.description,
-                        expired_date=task.expired_date, priority=task.priority)
+                        expired_date=task.expired_date, priority=task.priority, user=task.user)
 
 
-def task_list():
-    return Task.objects.all()
+def task_list(user):
+    return Task.objects.filter(user=user).all()
 
 
 def task_get(id):
@@ -24,3 +24,4 @@ def task_update(task, draft_task):
 
 def task_delete(task):
     task.delete()
+

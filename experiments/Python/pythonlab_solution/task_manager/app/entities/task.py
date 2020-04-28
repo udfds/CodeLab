@@ -1,9 +1,10 @@
 class Task():
-    def __init__(self, title, description, expired_date, priority):
+    def __init__(self, title, description, expired_date, priority, user):
         self._title = title
         self._description = description
         self._expired_date = expired_date
         self._priority = priority
+        self._user = user
 
     @property
     def title(self):
@@ -36,3 +37,12 @@ class Task():
     @priority.setter
     def priority(self, priority):
         self._priority = priority
+
+    @property
+    def user(self):
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        self._user = user
+
