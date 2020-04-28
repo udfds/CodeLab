@@ -27,9 +27,11 @@
 - Python
   - delivery-monitoring
     - Application for delivery request and monitoring. (Flask, RabbitMQ)
-  - flask_joblib.py
+  - pythonlab_solution/task_manager
+    - Application for task manager. (Python, Djanglo, Heroku)
+  - pythonlab_scripts/flask_joblib.py
     - API for a machine learning model.
-  - python_data_structure.ipynb
+  - pythonlab_notebooks/python_data_structure.ipynb
     - Practicing Data Structures In Python. 
 
 
