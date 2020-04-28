@@ -64,3 +64,5 @@ experiments/Python/pythonlab_solution/task_manager/app/entities/__pycache__/
 experiments/Python/pythonlab_solution/task_manager/app/services/__pycache__/
 
 experiments/Python/pythonlab_solution/task_manager/app/templatetags/__pycache__/
+
+*.pyc
