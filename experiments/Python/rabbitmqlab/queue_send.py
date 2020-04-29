@@ -16,5 +16,5 @@ message = ' '.join(sys.argv[1:]) or "Hello World!"
 message_properties = pika.BasicProperties(delivery_mode=2,)
 channel.basic_publish(exchange='', routing_key='task_queue', body=message, properties=message_properties)
 
-print("Sent: ", message)
+print('Sent: ', message)
 connection.close()
