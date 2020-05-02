@@ -9,8 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class CatalogApplication {
-
-	@Value("${queue.order.name}")
+	
+	@Value("${rabbitmq.queue.order}")
 	private String orderQueue;
 	
 	public static void main(String[] args) {

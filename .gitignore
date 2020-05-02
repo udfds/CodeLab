@@ -66,3 +66,5 @@ experiments/Python/pythonlab_solution/task_manager/app/services/__pycache__/
 experiments/Python/pythonlab_solution/task_manager/app/templatetags/__pycache__/
 
 *.pyc
+
+experiments/Java/ecommerce/containers/rabbitmq_data/
