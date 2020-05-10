@@ -1,14 +1,14 @@
 *** Settings ***
-Library     SeleniumLibrary
+Library    SeleniumLibrary
 
-*** Keywords *** 
+*** Keywords ***
 BrowserDetails
-    [Arguments]     ${url}  
-    Open Browser   ${url}  chrome
+    [Arguments]                ${url}
+    Open Browser               ${url}                    chrome
 
 *** Test Cases ***
 TC - Keywords
-    BrowserDetails  https://www.google.com
-    Input Text  name:q     robotframework
-    Capture Page Screenshot     ss_tc_009.png
+    BrowserDetails             https://www.google.com
+    Input Text                 name:q                    robotframework
+    Capture Page Screenshot    ss_tc_009.png
     Close Browser
