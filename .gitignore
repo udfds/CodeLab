@@ -71,3 +71,5 @@ experiments/Java/ecommerce/containers/rabbitmq_data/
 experiments/Java/service-orders/.mvn/wrapper/
 
 experiments/Python/Katalon/
+
+*.jar
