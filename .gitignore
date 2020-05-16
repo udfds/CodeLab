@@ -73,3 +73,5 @@ experiments/Java/service-orders/.mvn/wrapper/
 experiments/Python/Katalon/
 
 *.jar
+
+experiments/JavaScript/mern/mern-tracker/backend/node_modules/
