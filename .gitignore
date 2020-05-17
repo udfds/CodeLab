@@ -75,3 +75,4 @@ experiments/Python/Katalon/
 *.jar
 
 experiments/JavaScript/mern/mern-tracker/backend/node_modules/
+experiments/JavaScript/mern/node_modules/
