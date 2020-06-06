@@ -8,7 +8,6 @@
 #### Record page
     - https://chrome.google.com/webstore/detail/robotcorder/ifiilbfgcemdapeibjfohnfpfmfblmpd
 
-
 #### Running tests in local (command line)
     - robot /tests/suite_draft/tc_0xy.robot
 
