@@ -6,6 +6,10 @@ from builder import ZombieBuilder
 from builder import SkeletonBuilder
 from builder import MonsterBuilder
 from prototype import MonsterPrototypeFactory
+from adapter import SkeletonAdapter
+from adapter import BeastAdapter
+from adapter import MiniBossAdapter
+from adapter import BossAdapter
 
 
 class DesignPatternTest(unittest.TestCase):
@@ -50,6 +54,29 @@ class DesignPatternTest(unittest.TestCase):
 
         self.assertTrue('dirty and rotten' in instance_a.describre())
         self.assertTrue('skull' in instance_b.describre())
+
+    def test_adapter(self):
+        skeleton = SkeletonAdapter()
+        beast = BeastAdapter()
+
+        mini_boss = MiniBossAdapter()
+        boss = BossAdapter()
+
+        mini_boss.set_adapter(skeleton)
+        self.assertTrue(mini_boss.attack() == 20)
+        self.assertTrue(mini_boss.live() == 1000)
+
+        mini_boss.set_adapter(beast)
+        self.assertTrue(mini_boss.attack() == 100)
+        self.assertTrue(mini_boss.live() == 2500)
+
+        boss.set_adapter(skeleton)
+        self.assertTrue(boss.attack() == 50)
+        self.assertTrue(boss.live() == 10000)
+
+        boss.set_adapter(beast)
+        self.assertTrue(boss.attack() == 250)
+        self.assertTrue(boss.live() == 25000)
 
 
 if __name__ == '__main__':
