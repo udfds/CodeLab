@@ -10,6 +10,12 @@ from adapter import SkeletonAdapter
 from adapter import BeastAdapter
 from adapter import MiniBossAdapter
 from adapter import BossAdapter
+from proxy import Dungeon
+from proxy import ProxyDungeon
+from state import CityPortal
+from state import MainCity
+from state import MarineCity
+from state import SkyCity
 
 
 class DesignPatternTest(unittest.TestCase):
@@ -55,6 +61,7 @@ class DesignPatternTest(unittest.TestCase):
         self.assertTrue('dirty and rotten' in instance_a.describre())
         self.assertTrue('skull' in instance_b.describre())
 
+    # TestCase Adapter
     def test_adapter(self):
         skeleton = SkeletonAdapter()
         beast = BeastAdapter()
@@ -77,6 +84,26 @@ class DesignPatternTest(unittest.TestCase):
         boss.set_adapter(beast)
         self.assertTrue(boss.attack() == 250)
         self.assertTrue(boss.live() == 25000)
+
+    # TestCase Proxy
+    def test_proxy(self):
+        instance_a = ProxyDungeon(Dungeon('Instance 1'))
+        instance_b = ProxyDungeon(Dungeon('Instance 2'))
+
+        self.assertTrue('Building' in instance_a.show_dungeon())
+        self.assertTrue('Dungeon' in instance_a.show_dungeon())
+        self.assertTrue('Building' in instance_b.show_dungeon())
+        self.assertTrue('Dungeon' in instance_b.show_dungeon())
+
+    # TestCase State
+    def test_state(self):
+        instance = CityPortal()
+
+        #self.assertTrue('to AnyCity break' in instance.warp('AnyCity'))
+        self.assertTrue('to MarineCity done' in instance.warp(MarineCity))
+        self.assertTrue('to MarineCity break' in instance.warp(MarineCity))
+        self.assertTrue('to MainCity done' in instance.warp(MainCity))
+        self.assertTrue('to SkyCity done' in instance.warp(SkyCity))
 
 
 if __name__ == '__main__':
