@@ -16,6 +16,11 @@ from state import CityPortal
 from state import MainCity
 from state import MarineCity
 from state import SkyCity
+from strategy import MoveSetStrategy
+from strategy import moveset_a
+from strategy import moveset_b
+from template import MakeIceMap
+from template import MakeLavaMap
 
 
 class DesignPatternTest(unittest.TestCase):
@@ -99,11 +104,39 @@ class DesignPatternTest(unittest.TestCase):
     def test_state(self):
         instance = CityPortal()
 
-        #self.assertTrue('to AnyCity break' in instance.warp('AnyCity'))
         self.assertTrue('to MarineCity done' in instance.warp(MarineCity))
         self.assertTrue('to MarineCity break' in instance.warp(MarineCity))
         self.assertTrue('to MainCity done' in instance.warp(MainCity))
         self.assertTrue('to SkyCity done' in instance.warp(SkyCity))
+
+    # TestCase Strategy
+    def test_strategy(self):
+        moveset_1 = MoveSetStrategy()
+        moveset_2 = MoveSetStrategy(moveset_a)
+        moveset_3 = MoveSetStrategy(moveset_b)
+
+        self.assertTrue(moveset_1.execute() == 'MoveSet')
+        self.assertTrue('MoveSet from execution A' in moveset_2.execute())
+        self.assertTrue('MoveSet from execution B' in moveset_3.execute())
+
+        moveset_2.name = 'MoveSet A'
+        moveset_3.name = 'MoveSet B'
+
+        self.assertTrue('MoveSet A from execution A' in moveset_2.execute())
+        self.assertTrue('MoveSet B from execution B' in moveset_3.execute())
+
+    # TestCase Template
+    def test_template(self):
+        icemap = MakeIceMap()
+        lavamap = MakeLavaMap()
+
+        icemap.load()
+        lavamap.load()
+
+        self.assertTrue('ice storm' in icemap.describe())
+        self.assertTrue('ice poring' in icemap.describe())
+        self.assertTrue('erruption' in lavamap.describe())
+        self.assertTrue('lava poring' in lavamap.describe())
 
 
 if __name__ == '__main__':
