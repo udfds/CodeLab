@@ -21,6 +21,8 @@ from strategy import moveset_a
 from strategy import moveset_b
 from template import MakeIceMap
 from template import MakeLavaMap
+from abstract_factory import FireMonsterFactory
+from abstract_factory import IceMonsterFactory
 
 
 class DesignPatternTest(unittest.TestCase):
@@ -137,6 +139,26 @@ class DesignPatternTest(unittest.TestCase):
         self.assertTrue('ice poring' in icemap.describe())
         self.assertTrue('erruption' in lavamap.describe())
         self.assertTrue('lava poring' in lavamap.describe())
+
+    def test_abstract_factory(self):
+        ice_factory = IceMonsterFactory()
+        fire_factory = FireMonsterFactory()
+
+        elemental = ice_factory.get_elemental()
+        self.assertTrue(elemental.get_family() == 'elemental')
+        self.assertTrue(elemental.get_name() == 'Ice elemental')
+
+        elemental = fire_factory.get_elemental()
+        self.assertTrue(elemental.get_family() == 'elemental')
+        self.assertTrue(elemental.get_name() == 'Fire elemental')
+
+        poring = ice_factory.get_poring()
+        self.assertTrue(poring.get_family() == 'poring')
+        self.assertTrue(poring.get_name() == 'Ice poring')
+
+        poring = fire_factory.get_poring()
+        self.assertTrue(poring.get_family() == 'poring')
+        self.assertTrue(poring.get_name() == 'Fire poring')
 
 
 if __name__ == '__main__':
