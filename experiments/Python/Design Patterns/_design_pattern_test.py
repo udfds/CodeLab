@@ -25,6 +25,7 @@ from abstract_factory import FireMonsterFactory
 from abstract_factory import IceMonsterFactory
 from facade import SpellFacade
 from mediator import TwoHeadDragon
+from memento import SavePoint
 
 
 class DesignPatternTest(unittest.TestCase):
@@ -181,6 +182,25 @@ class DesignPatternTest(unittest.TestCase):
         self.assertTrue('Fire' == left.fire_breath())
         self.assertTrue('Ice' == right.ice_breath())
         self.assertTrue('Fire' == right.fire_breath())
+
+    # TestCase Memento
+    def test_memento(self):
+        save_point = SavePoint()
+
+        save_point.state = 1
+        save_1 = save_point.save()
+
+        save_point.state = 2
+        save_2 = save_point.save()
+
+        save_point.state = 3
+        self.assertTrue(save_point.state == 3)
+
+        save_point.load(save_1)
+        self.assertTrue(save_point.state == 1)
+
+        save_point.load(save_2)
+        self.assertTrue(save_point.state == 2)
 
 
 if __name__ == '__main__':
