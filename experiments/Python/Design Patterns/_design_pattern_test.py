@@ -23,6 +23,8 @@ from template import MakeIceMap
 from template import MakeLavaMap
 from abstract_factory import FireMonsterFactory
 from abstract_factory import IceMonsterFactory
+from facade import SpellFacade
+from mediator import TwoHeadDragon
 
 
 class DesignPatternTest(unittest.TestCase):
@@ -140,6 +142,7 @@ class DesignPatternTest(unittest.TestCase):
         self.assertTrue('erruption' in lavamap.describe())
         self.assertTrue('lava poring' in lavamap.describe())
 
+    # TestCase AbstractFactory
     def test_abstract_factory(self):
         ice_factory = IceMonsterFactory()
         fire_factory = FireMonsterFactory()
@@ -159,6 +162,25 @@ class DesignPatternTest(unittest.TestCase):
         poring = fire_factory.get_poring()
         self.assertTrue(poring.get_family() == 'poring')
         self.assertTrue(poring.get_name() == 'Fire poring')
+
+    # TestCase Facade
+    def test_facade(self):
+        spell_facade = SpellFacade()
+
+        self.assertTrue('Soul arrows' in spell_facade.soul_arrow())
+        self.assertTrue('fire damage' in spell_facade.fireball())
+        self.assertTrue('cast a miracle' in spell_facade.heal())
+
+    # TestCase Mediator
+    def test_mediator(self):
+        two_head_dragon = TwoHeadDragon()
+        left = two_head_dragon.get_left_head()
+        right = two_head_dragon.get_right_head()
+
+        self.assertTrue('Ice' == left.ice_breath())
+        self.assertTrue('Fire' == left.fire_breath())
+        self.assertTrue('Ice' == right.ice_breath())
+        self.assertTrue('Fire' == right.fire_breath())
 
 
 if __name__ == '__main__':
