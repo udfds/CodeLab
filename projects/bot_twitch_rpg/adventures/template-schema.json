@@ -1,0 +1,78 @@
+{
+    "adventure": {
+        "adventure_title": "string",
+        "adventure_id": "string",
+        "_image_url": "string",
+        "_requires": [ "string" ]
+    },
+
+    "_settings": {
+        "_default_transition_time": "interge",
+        "_default_voting_time": "interge",
+        "_default_death_scenes": "interge"
+    },
+
+    "_artifacts": [
+        {
+            "name": "string",
+            "global_event_id": "string",
+            "_set": {
+                "_life": "string",
+                "_deffense": "string",
+                "_attack": "string",
+                "_power": "string",
+                "_gold": "string",
+                "_luck": "string"
+            }
+        }
+    ],
+
+    "_events": [
+        {
+            "event_id": "string",
+
+            "_gain": {
+                "_events_ids": [ "string" ], 
+                "_artifacts_ids": [ "string" ],
+                "_global_event_id": [ "string" ]
+            },
+
+            "_lost": {
+                "_events_ids": [ "string" ], 
+                "_artifacts_ids": [ "string"],
+                "_global_event_id": [ "string" ]
+            },
+
+            "_set": {
+                "_life": "string",
+                "_deffense": "string",
+                "_attack": "string",
+                "_power": "string",
+                "_gold": "string",
+                "_luck": "string"
+            }
+        }
+    ],
+
+    "scenes": [
+        {
+            "scene_id": "string",
+            "next_scene_id": "string",
+            "_text": "string",
+            "_image_url": "string",
+            "_requires": [ "string" ],
+            "_actions": [
+                {
+                    "text": "string",
+                    "_requires": [ "string" ],
+                    "_event_id": "string",
+                    "_test": {
+                        "property": "string",
+                        "event_sucess_id": "string",
+                        "event_fail_id": "string"
+                    }
+                }
+            ]
+        }
+    ]
+}

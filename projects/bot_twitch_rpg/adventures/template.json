@@ -1,0 +1,112 @@
+{
+    "adventure": {
+        "adventure_title": "ADVENTURE_TITLE",
+        "adventure_id": "GLOBAL_ADVENTURE_ID",
+        "_image_url": "OPTIONAL_IMAGE_URL",
+        "_requires": [
+            {
+                "type": "ANY",
+                "global_events_ids": [
+                    "GLOBAL_EVENT_ID_A",
+                    "GLOBAL_EVENT_ID_B"
+                ]
+            },
+            {
+                "type": "ALL",
+                "global_events_ids": [
+                    "GLOBAL_EVENT_ID_C",
+                    "GLOBAL_EVENT_ID_D"
+                ]
+            }
+        ]
+    },
+
+    "_settings": {
+        "_default_voting_time": "60",
+        "_default_image_url": "",
+        "_default_death_scenes": -1
+    },
+
+    "_artfacts": [
+        {
+            "name": "NAME_OF_ARTFACT",
+            "global_event_id": "GLOBAL_EVENT_ID"
+        }
+    ],
+
+    "_events": [
+        {
+            "event_id": "UNIQUE_EVENT_ID_LOCAL",
+            "_gain": [],
+            "_lost": [],
+            "_set": {
+                "_life": "+1",
+                "_deffense": "-1",
+                "_attack": "*2",
+                "_power": "/2",
+                "_gold": "=0",
+                "_luck": "=100"
+            }
+        }
+    ],
+
+    "scenes": [
+        {
+            "scene_id": "LOCAL_SCENE_ID_A",
+            "next_scene_id": "LOCAL_SCENE_ID_B",
+            "_text": "OPTIONAL_TEXT",
+            "_image_url": "OPTIONAL_IMAGE_URL",
+            "_requires": [
+                {
+                    "type": "ANY",
+                    "_scenes_ids": [
+                        "LOCAL_SCENE_ID_X",
+                        "LOCAL_SCENE_ID_Y"
+                    ],
+                    "_global_event_ids": []
+                },
+                {
+                    "type": "ALL",
+                    "_scenes_ids": [
+                        "LOCAL_SCENE_ID_Z",
+                        "LOCAL_SCENE_ID_W"
+                    ],
+                    "_global_event_ids": [
+                        "GLOBAL_EVENT_ID"
+                    ]
+                }
+            ],
+            "_actions": [
+                {
+                    "text": "OPTION_1",
+                    "_requires": [
+                        {
+                            "type": "ANY",
+                            "_scenes_ids": [
+                                "LOCAL_SCENE_ID_X",
+                                "LOCAL_SCENE_ID_Y"
+                            ],
+                            "_adventure_ids": []
+                        },
+                        {
+                            "type": "ALL",
+                            "_scenes_ids": [
+                                "LOCAL_SCENE_ID_Z",
+                                "LOCAL_SCENE_ID_W"
+                            ],
+                            "_adventure_ids": [
+                                "GLOBAL_ADVENTURE_ID_X"
+                            ]
+                        }
+                    ],
+                    "_event_id": "EVENT_ID",
+                    "_test": {
+                        "property": "LUCK",
+                        "event_sucess_id": "EVENT_SUCESS_ID",
+                        "event_fail_id": "EVENT_FAIL_ID"
+                    }
+                }
+            ]
+        }
+    ]
+}
