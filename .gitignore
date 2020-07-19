@@ -85,3 +85,5 @@ experiments/JavaScript/NodeJs Lab/mern-tracker/backend/.env
 experiments/JavaScript/mern/mern-tracker/backend/.env
 experiments/JavaScript/NodeJs Lab/paradox-api/node_modules
 experiments/JavaScript/React Lab/rich-text-editor/src/App.test.js
+
+experiments/JavaScript/NodeJs Lab/paradox-api/package-lock.json
