@@ -12,7 +12,7 @@ const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-console.log('Paradox API running on port:' + port);
+console.log('Shopping API running on port:' + port);
 
 
 function loadPort(value) {
