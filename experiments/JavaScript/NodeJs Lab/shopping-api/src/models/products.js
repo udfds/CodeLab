@@ -1,9 +1,8 @@
 'user stricts';
 
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const schema = new Schema({
+const ProductSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -36,4 +35,4 @@ const schema = new Schema({
     }]
 });
 
-mondule.exports = mongoose.model('Product', schema);
+module.exports = mongoose.model('Product', ProductSchema);

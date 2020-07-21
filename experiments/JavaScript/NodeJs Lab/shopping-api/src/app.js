@@ -6,6 +6,21 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+// Conectar com o banco
+const MongoClient = require('mongodb').MongoClient;
+
+const uri = "";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+    const collection = client.db("test").collection("shopping");
+    //console.log(collection);
+
+    client.close();
+});
+
+// Carregar models
+const Products = require('./models/products');
+
 // Carregar routers
 const route_index = require('./routes/index');
 const route_products = require('./routes/products');
@@ -14,18 +29,7 @@ const route_products = require('./routes/products');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Conectar com o banco
-const MongoClient = require('mongodb').MongoClient;
-const uri = "";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-    const collection = client.db("test").collection("tasks");
-    //console.log(collection);
-    client.close();
-});
-
-
-
+// Definir rotas
 app.use('/', route_index);
 app.use('/products', route_products);
 
