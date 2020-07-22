@@ -4,30 +4,28 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const app = express();
-
-// Conectar com o banco
-const MongoClient = require('mongodb').MongoClient;
-
-const uri = "";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-    const collection = client.db("test").collection("shopping");
-    //console.log(collection);
-
-    client.close();
-});
-
-// Carregar models
-const Products = require('./models/products');
-
-// Carregar routers
-const route_index = require('./routes/index');
-const route_products = require('./routes/products');
-
 // Converter automaticamente em json
+const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+
+// -----------------------------------------------------------------------------------------
+// DataBase
+// -----------------------------------------------------------------------------------------
+const uri = "mongodb+srv://<login>:<password>@cluster0-hq1oy.gcp.mongodb.net/shopping?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MongoDB database connection established successfully");
+});
+
+
+// -----------------------------------------------------------------------------------------
+// Routes
+// -----------------------------------------------------------------------------------------
+const route_index = require('./routes/index');
+const route_products = require('./routes/products');
 
 // Definir rotas
 app.use('/', route_index);

@@ -1,19 +1,34 @@
 'use stricts';
 
-const mongoose = require('mongoose');
-const Product = mongoose.model('Product');
+const Product = require('../models/products');
+const Validator = require('../validators/validator');
+const Repository = require('../repositories/products');
 
-exports.get = (req, res, _next) => {
-    Product.find({}).then(data => {
-        res.status(200).send(data);
+exports.get = (_req, res, _next) => {
+    Repository.list().then(products => {
+        res.status(200).send(products);
     }).catch(error => {
         res.status(400).send(error);
     });
 };
 
 exports.post = (req, res, _next) => {
-    let product = new Product(req.body);
-    product.save().then(x => {
+    let draftProduct = new Product(req.body);
+
+    let validator = new Validator();
+    validator.minLength(draftProduct.title, 3, 'title');
+    validator.minLength(draftProduct.slug, 3, 'slug');
+    validator.minLength(draftProduct.description, 3, 'description');
+    validator.maxLength(draftProduct.title, 10, 'title');
+    validator.maxLength(draftProduct.slug, 10, 'slug');
+    validator.maxLength(draftProduct.description, 10, 'description');
+
+    if (!validator.isValid()) {
+        res.status(400).send(validator.errors()).end();
+        return;
+    }
+
+    Repository.save(draftProduct).then(() => {
         res.status(201).send({
             message: 'Produto cadastrado com sucesso!'
         });
@@ -22,38 +37,52 @@ exports.post = (req, res, _next) => {
             message: 'Erro ao cadastrar produto!',
             data: error
         });
-    }).finally(() => {
-        console.log('F---');
     });
-
 };
 
 exports.put = (req, res, _next) => {
-    const id = req.params.id;
-    res.status(200).send({
-        id: id,
-        item: req.body
+    let draftProduct = {
+        title: req.body.title,
+        description: req.body.description,
+        price: req.body.price
+    };
+
+    Repository.update(req.params.id, draftProduct).then(() => {
+        res.status(201).send({
+            message: 'Produto atualizado com sucesso!'
+        });
+    }).catch(error => {
+        res.status(400).send({
+            message: 'Erro ao atualizar produto!',
+            data: error
+        });
     });
 };
 
 exports.delete = (req, res, _next) => {
-    res.status(200).send(req.body);
+    Repository.delete(req.params.id).then(() => {
+        res.status(201).send({
+            message: 'Produto removido com sucesso!'
+        });
+    }).catch(error => {
+        res.status(400).send({
+            message: 'Erro ao remover produto!',
+            data: error
+        });
+    });
 };
 
 exports.getBySlug = (req, res, _next) => {
-    Product.findOne({
-        active: true,
-        slug: req.params.slug
-    }).then(data => {
-        res.status(200).send(data);
+    Repository.getBySlug(req.params.slug).then(product => {
+        res.status(200).send(product);
     }).catch(error => {
         res.status(400).send(error);
     });
 };
 
 exports.getById = (req, res, _next) => {
-    Product.findById(req.params).then(data => {
-        res.status(200).send(data);
+    Repository.getById(req.params.id).then(product => {
+        res.status(200).send(product);
     }).catch(error => {
         res.status(400).send(error);
     });
