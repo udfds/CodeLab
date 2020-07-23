@@ -30,11 +30,11 @@ exports.post = (req, res, _next) => {
 
     Repository.save(draftProduct).then(() => {
         res.status(201).send({
-            message: 'Produto cadastrado com sucesso!'
+            message: 'Product cadastrado com sucesso!'
         });
     }).catch(error => {
         res.status(400).send({
-            message: 'Erro ao cadastrar produto!',
+            message: 'Erro ao cadastrar Product!',
             data: error
         });
     });
@@ -49,11 +49,11 @@ exports.put = (req, res, _next) => {
 
     Repository.update(req.params.id, draftProduct).then(() => {
         res.status(201).send({
-            message: 'Produto atualizado com sucesso!'
+            message: 'Product atualizado com sucesso!'
         });
     }).catch(error => {
         res.status(400).send({
-            message: 'Erro ao atualizar produto!',
+            message: 'Erro ao atualizar Product!',
             data: error
         });
     });
@@ -62,11 +62,11 @@ exports.put = (req, res, _next) => {
 exports.delete = (req, res, _next) => {
     Repository.delete(req.params.id).then(() => {
         res.status(201).send({
-            message: 'Produto removido com sucesso!'
+            message: 'Product removido com sucesso!'
         });
     }).catch(error => {
         res.status(400).send({
-            message: 'Erro ao remover produto!',
+            message: 'Erro ao remover Product!',
             data: error
         });
     });

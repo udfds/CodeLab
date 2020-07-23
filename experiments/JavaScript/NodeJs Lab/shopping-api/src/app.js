@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // -----------------------------------------------------------------------------------------
 // DataBase
 // -----------------------------------------------------------------------------------------
-const uri = "mongodb+srv://<login>:<password>@cluster0-hq1oy.gcp.mongodb.net/shopping?retryWrites=true&w=majority";
+const uri = "";
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -22,13 +22,24 @@ connection.once('open', () => {
 
 
 // -----------------------------------------------------------------------------------------
+// Models
+// -----------------------------------------------------------------------------------------
+const Product = require('./models/products');
+const Customer = require('./models/customers');
+const Order = require('./models/orders');
+
+
+// -----------------------------------------------------------------------------------------
 // Routes
 // -----------------------------------------------------------------------------------------
 const route_index = require('./routes/index');
 const route_products = require('./routes/products');
+const route_customers = require('./routes/customers');
+const route_orders = require('./routes/orders');
 
-// Definir rotas
 app.use('/', route_index);
 app.use('/products', route_products);
+app.use('/customers', route_customers);
+app.use('/orders', route_orders);
 
 module.exports = app;

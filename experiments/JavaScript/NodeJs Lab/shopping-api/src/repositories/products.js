@@ -19,7 +19,7 @@ exports.getById = (id) => {
 };
 
 exports.save = (draftProduct) => {
-    return Product.save(draftProduct);
+    return draftProduct.save();
 };
 
 exports.update = (id, draftProduct) => {
