@@ -3,6 +3,7 @@
 const Customer = require('../models/customers');
 const Validator = require('../validators/validator');
 const Repository = require('../repositories/customers');
+const md5 = require('md5');
 
 exports.get = (_req, res, _next) => {
     Repository.list().then(customers => {
@@ -24,6 +25,8 @@ exports.post = (req, res, _next) => {
         res.status(400).send(validator.errors()).end();
         return;
     }
+
+    draftCustomer.password = md5(draftCustomer.password + global.SALT_KEY);
 
     Repository.save(draftCustomer).then(() => {
         res.status(201).send({

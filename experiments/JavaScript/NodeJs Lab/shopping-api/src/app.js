@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 // Converter automaticamente em json
 const app = express();
@@ -13,8 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // -----------------------------------------------------------------------------------------
 // DataBase
 // -----------------------------------------------------------------------------------------
-const uri = "";
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(config.connectionString, { useNewUrlParser: true, useCreateIndex: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
