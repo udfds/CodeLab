@@ -66,13 +66,25 @@ experiments/Python/pythonlab_solution/task_manager/app/services/__pycache__/
 experiments/Python/pythonlab_solution/task_manager/app/templatetags/__pycache__/
 
 *.pyc
+*.jar
+*.class
+*.bat
+*.cmd
+*.log
+*.ejs
+*.hrl
+*.beam
+*.DCD
+*.DCL
+*.DAT
+*.bat
+*/.mvn/*
+
 
 experiments/Java/ecommerce/containers/rabbitmq_data/
 experiments/Java/service-orders/.mvn/wrapper/
 
 experiments/Python/Katalon/
-
-*.jar
 
 experiments/JavaScript/mern/mern-tracker/backend/node_modules/
 experiments/JavaScript/mern/node_modules/
@@ -88,3 +100,13 @@ experiments/JavaScript/React Lab/rich-text-editor/src/App.test.js
 experiments/JavaScript/NodeJs Lab/paradox-api/package-lock.json
 
 experiments/JavaScript/NodeJs Lab/shopping-api/package-lock.json
+
+experiments/Python/Flask Lab/delivery-monitoring/rabbitmq_data/
+
+experiments/Java/Spring Lab/Ecommerce/service-order/.mvn/wrapper/
+
+experiments/Java/ecommerce/service-order/.mvn/wrapper/
+
+experiments/Java/Spring Lab/Ecommerce/catalog/.mvn/wrapper/
+
+experiments/Java/Spring Lab/Ecommerce/containers/rabbitmq_data/
