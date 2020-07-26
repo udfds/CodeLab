@@ -78,6 +78,33 @@ function indexOf(array, target, offset = 0) {
     }
 }
 
+function powerSet(value = '') {
+    let array = Array.from(value);
+    let base = [''];
+
+    let results = array.reduce((previous, currentElement) => {
+        let previousElement = previous.map(element => {
+            return `${element}${currentElement}`;
+        });
+
+        return previous.concat(previousElement);
+    }, base);
+
+    return results.length;
+}
+
+function permutations(string, prefix = '') {
+    if (string.length <= 1) {
+        return [prefix + string];
+    }
+
+    return Array.from(string).reduce((result, char, index) => {
+        let reminder = string.slice(0, index) + string.slice(index + 1);
+        result = result.concat(permutations(reminder, prefix + char));
+        return result;
+    }, []);
+}
+
 // ---------------------------------------------------------------------
 // Actions
 // ---------------------------------------------------------------------
@@ -114,3 +141,20 @@ console.log('Big O logarithmic time: O(log n)');
 console.log('   - Binary search');
 console.log('   -- Example, index of "[3, 1, 2]": ' + indexOf([3, 1, 2], 1));
 console.log('   -- Example, index of "[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]": ' + indexOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 6));
+console.log('');
+console.log('');
+console.log('Big O exponential time: O(2^n)');
+console.log('   - Power set');
+console.log('   -- Example, value = "": ' + powerSet(''));
+console.log('   -- Example, value = "A": ' + powerSet('A'));
+console.log('   -- Example, value = "AB": ' + powerSet('AB'));
+console.log('   -- Example, value = "ABC": ' + powerSet('ABC'));
+console.log('');
+console.log('');
+console.log('Big O factorial time: O(n!)');
+console.log('   - Permutations');
+console.log('   -- Example, value = "A": ' + permutations('A'));
+console.log('   -- Example, value = "AB": ' + permutations('AB'));
+console.log('   -- Example, value = "ABC": ' + permutations('ABC'));
+console.log('');
+console.log('');
