@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    @apply h-screen;
+}
+
+body {
+    @apply bg-coral;
+}
+
+#__next{
+    @apply h-screen flex flex-col;
+}
+
+a, a:visited {
+    @apply px-3 inline-block text-center align-middle text-white;
+}

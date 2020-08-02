@@ -110,3 +110,6 @@ experiments/Java/ecommerce/service-order/.mvn/wrapper/
 experiments/Java/Spring Lab/Ecommerce/catalog/.mvn/wrapper/
 
 experiments/Java/Spring Lab/Ecommerce/containers/rabbitmq_data/
+
+experiments/JavaScript/NextJs Lab/tailwind-lab-app/.next/
+experiments/JavaScript/NextJs Lab/tailwind-lab-app/node_modules/
