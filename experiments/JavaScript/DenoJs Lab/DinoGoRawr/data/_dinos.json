@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Alamosaurus",
+        "color": "Green",
+        "type": "Saurópode"
+    },
+    {
+        "id": 2,
+        "name": "Allosaurus",
+        "color": "Gray",
+        "type": "Allosauridae"
+    },
+    {
+        "id": 3,
+        "name": "Barionix",
+        "color": "Green",
+        "type": "Spinosauridae"
+    },
+    {
+        "id": 4,
+        "name": "Camarasaurus",
+        "color": "rown",
+        "type": "Camarasaurinae"
+    }
+]
