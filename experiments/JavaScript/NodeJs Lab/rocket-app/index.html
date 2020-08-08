@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <ul class="rockets">
+
+    </ul>
+    <ul class="dragons">
+
+    </ul>
+</body>
+<script>
+    function showRockets(rockets) {
+        let output = "";
+        for (let rocket of rockets) {
+            output += `<li>${rocket.name} - ${rocket.country} : ${rocket.status}</li>`;
+        }
+
+        document.querySelector('.rockets').innerHTML = output;
+    }
+
+    async function loadRockets() {
+        try {
+            const response = await fetch('http://localhost:4567/rockets');
+            const rockets = await response.json();
+            showRockets(rockets);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function showDragons(dragons) {
+        let output = "";
+        for (let dragon of dragons) {
+            output += `<li>${dragon.name} - ${dragon.type}</li>`;
+        }
+
+        document.querySelector('.dragons').innerHTML = output;
+    }
+
+    async function loadDragons() {
+        try {
+            const response = await fetch('http://localhost:4567/dragons');
+            const dragons = await response.json();
+            showDragons(dragons);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    loadRockets();
+    loadDragons();
+</script>
+
+</html>
